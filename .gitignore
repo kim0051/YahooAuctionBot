@@ -1,0 +1,9 @@
+.bak
+.project
+private/
+setting/
+junk/
+.DS_Store
+conf/
+local/
+cpanfile.snapshot
