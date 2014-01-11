@@ -1,8 +1,8 @@
-Yahoo Auction Bot with Twitter
+Yahoo Auction Bot with Twitter (Perl)
 
 * use
  - Yahoo API
- - Twitter APi
+ - Twitter API
 
 * pre setting
  - install cpanm and carton
