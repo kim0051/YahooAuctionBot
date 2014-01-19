@@ -4,6 +4,7 @@ private/
 setting/
 junk/
 .DS_Store
-conf/
+conf/*.pl
+conf/*.conf
 local/
 cpanfile.snapshot
