@@ -8,15 +8,15 @@ Yahoo Auction Bot with Twitter (Perl)
  - install cpanm and carton
  - Yahoo Japan Dev account and Twitter Dev account 
 
-*write conf
+* write conf
  -cp conf/twitter.conf.sample conf/twitter.conf
  -cp conf/yahoo.conf.sample conf/yahoo.conf
 
-*cpan module install
+* cpan module install
  -carton install
 
-*cpan module update
+* cpan module update
  -carton update
 
-*boot
+* boot
 perl loop.pl
