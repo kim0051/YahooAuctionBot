@@ -9,14 +9,14 @@ Yahoo Auction Bot with Twitter (Perl)
  - Yahoo Japan Dev account and Twitter Dev account 
 
 * write conf
- -cp conf/twitter.conf.sample conf/twitter.conf
- -cp conf/yahoo.conf.sample conf/yahoo.conf
+ - cp conf/twitter.conf.sample conf/twitter.conf
+ - cp conf/yahoo.conf.sample conf/yahoo.conf
 
 * cpan module install
- -carton install
+ - carton install
 
 * cpan module update
- -carton update
+ - carton update
 
 * boot
-perl loop.pl
+ - perl loop.pl
