@@ -173,8 +173,14 @@ sub tweet {
 	);
 
 	for my $tweet_line (@lines) {
-		say "tweet!";
-        	$nt->update($tweet_line);
+		eval {
+			say "tweet!";
+        		$nt->update($tweet_line);
+		};
+		if($@) {
+			say "error";
+			say $@;
+		}
 		sleep($tweet_sleep_time);
 	}
 
