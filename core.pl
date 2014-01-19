@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 use feature ':5.10';
-use Net::Twitter 4.0000006;
+use Net::Twitter;
 use Data::Dumper;
 use Encode;
 use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
@@ -19,7 +19,6 @@ my ($conf_file);
 GetOptions(
     "twitter=s" => \my $twitter_conf,
     "yahoo=s" => \my $yahoo_conf,
-    "search_option=s" => \my $search_option
 );
 #exit;
 #TODO Twitterサーバーが５０３の時、おそらくプロセス死ぬが外側からSYSTEM呼び出しするので大丈夫
@@ -176,6 +175,7 @@ sub tweet {
 		consumer_secret     => $conf->{Twitter}->{Consumer_secret_Access_token},
 		access_token        => $conf->{Twitter}->{Access_token},
 		access_token_secret => $conf->{Twitter}->{Access_token_secret},
+		ssl => 1, # 2014/01/15 https://dev.twitter.com/discussions/24239
 	);
 
 	for my $tweet_line (@lines) {

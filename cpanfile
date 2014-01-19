@@ -1,2 +1,2 @@
-requires 'Net::Twitter' => "4.0000006";
+requires 'Net::Twitter';
 
