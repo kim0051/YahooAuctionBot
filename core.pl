@@ -44,23 +44,16 @@ my $affiliate_url =
 my $application_key = $conf->{YahooJapan}->{application_key};
 my $OS_WINDOWS = 'MSWin32';
 
-my $max = 10;
+my $max = 20;
 #1回のツイートで間隔をあける秒数
 my $tweet_sleep_time = 10;
 
 my %options;
-$options{'query'} = "艦これ";
+$options{'query'} = "コミケ c85";
 $options{'sort'}  = "bids";
 $options{"order"} = "a";
 $options{"page"}  = 1;
-
-get_data( \%options );
-
-%options = ();
-
-$options{'query'} = "艦これ";
-$options{"order"} = "a";
-$options{"page"}  = 1;
+$options{"hashtag"} = "#C85";
 
 get_data( \%options );
 
@@ -106,7 +99,7 @@ sub get_data {
 		my $counter = 0;
 		foreach my $var (@$item_ref) {
 			$counter++;
-			my $line = item_output($var);
+			my $line = item_output($var , $options->{hashtag});
 			#say $line;
             push(@tweets,$line);
 			last if $max == $counter;
@@ -120,6 +113,7 @@ sub get_data {
 
 sub item_output {
 	my $var = shift;
+	my $hash_tag = shift;
 
 	#入札数
 	my $bids = $var->{Bids} || 0;
@@ -150,7 +144,7 @@ sub item_output {
     #twipicとかじゃないとサムネイル表示されないので意味が無い
     #$image ||= $var->{Image};
 
-	my $return_st = $title." 入札数=".$bids.$cprice.$sokketu.$endate. " " .  $affi_url . " #艦これ";
+	my $return_st = $title." 入札数=".$bids.$cprice.$sokketu.$endate. " " .  $affi_url . " " . $hash_tag;
 
 	return $return_st;
 }
